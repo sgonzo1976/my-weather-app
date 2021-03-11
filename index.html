@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-12 margin-top">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- <img src="images/location.png" class="home" alt="current location"> -->
+                            <span class="card-title" id="current-location">
+                                Papillion, NE
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <form class="search-form" id="search-form">
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <input type="search" class="form-control"
+                                            placeholder="Search for another location" autofocus="on" autocomplete="off"
+                                            id="city-input">
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="submit" id="search-for-new-city">
+                                            <img src="images/search.jpg" class="search" alt="search the Earth">
+                                        </button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="click" id="return-to-current-location">
+                                            <img src="images/location.png" class="home" alt="current location">
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <span id="current-day-and-time">
+                    </span>
+                    <br />
+                    <span id="description-of-current-condition">
+                        Cloudy
+                    </span>
+                    <br />
+                    <div class="current-condition">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- <img src="images/cloudy.jpg" class="cloudy" alt="cloudy skies"> -->
+                                <span class="align-middle current-temperature" id="temperature">
+                                    -10
+                                </span>
+                                <span class="units">
+                                    <!-- <a href="#" id="fahrenheit-link"> -->
+                                        °F
+                                    <!-- </a> -->
+                                    <!-- |
+                                    <a href="#" id="celsius-link">
+                                        °C
+                                    </a> -->
+                                </span>
+                            </div>
+                            <div class="col-6">
+                                <br />
+                                <!-- <p class="preciptation">
+                                    Precipitation: 0%
+                                </p> -->
+                                <p class="wind" id="wind">
+                                    Wind: NE 4 mph
+                                </p>
+                                <p class="humidity" id="humidity">
+                                    Humidity: 67%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <!-- <div class="row">
+                        <div class="col-2">
+                            <p class="day">
+                                Mon
+                            </p>
+                            <p class="date">
+                                2/15
+                            </p>
+                            <img src="images/extreme-cold.jpg" class="frigid" alt="blue thermometer">
+                            <p class="high">
+                                Hi -2°F
+                            </p>
+                            <p class="low">
+                                Low -20°F
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p class="day">
+                                Tue
+                            </p>
+                            <p class="date">
+                                2/16
+                            </p>
+                            <img src="images/extreme-cold.jpg" class="frigid" alt="blue thermometer">
+                            <p class="high">
+                                Hi 1°F
+                            </p>
+                            <p class="low">
+                                Low -2°F
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p class="day">
+                                Wed
+                            </p>
+                            <p class="date">
+                                2/17
+                            </p>
+                            <img src="images/partly-sunny.jpg" class="partly-sunny" alt="sun behind cloud">
+                            <p class="high">
+                                Hi 14°F
+                            </p>
+                            <p class="low">
+                                Low 0°F
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p class="day">
+                                Thur
+                            </p>
+                            <p class="date">
+                                2/18
+                            </p>
+                            <img src="images/partly-sunny.jpg" class="partly-sunny" alt="sun behind cloud">
+                            <p class="high">
+                                Hi 13°F
+                            </p>
+                            <p class="low">
+                                Low 0°F
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p class="day">
+                                Fri
+                            </p>
+                            <p class="date">
+                                2/19
+                            </p>
+                            <img src="images/partly-sunny.jpg" class="partly-sunny" alt="sun behind cloud">
+                            <p class="high">
+                                Hi 21°F
+                            </p>
+                            <p class="low">
+                                Low 14°F
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p class="day">
+                                Sat
+                            </p>
+                            <p class="date">
+                                2/18
+                            </p>
+                            <img src="images/partly-sunny.jpg" class="partly-sunny" alt="sun behind cloud">
+                            <p class="high">
+                                Hi 30°F
+                            </p>
+                            <p class="low">
+                                Low 23°F
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="src/index.js"></script> -->
+    <script src="src/index.js"></script>
+</body>
+
+</html>
