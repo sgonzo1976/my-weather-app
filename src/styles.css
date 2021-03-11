@@ -1,0 +1,88 @@
+button {
+  border: none;
+  background: #fff;
+}
+
+.container {
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.margin-top {
+  margin-top: 25px;
+}
+
+.card {
+  border-color: #1a73e8;
+  border-width: 4px;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+.form-control {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+.search {
+  width: 40px;
+}
+
+.home {
+  width: 40px;
+}
+
+.current-condition {
+  padding-bottom: 20px;
+}
+
+.cloudy {
+  width: 100px;
+}
+
+.current-temperature {
+  font-size: 72px;
+}
+
+.units {
+  font-size: 18px;
+  vertical-align: top;
+  line-height: 3.5;
+}
+
+.preciptation,
+.wind,
+.humidity,
+.day,
+.date,
+.high,
+.low {
+  margin: 0;
+}
+
+.day,
+.date,
+.high,
+.low {
+  text-align: center;
+}
+
+.high {
+  font-size: 25px;
+}
+
+.frigid {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+}
+
+.partly-sunny {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 0;
+  width: 40px;
+}
