@@ -5,8 +5,6 @@ function showWeatherInformation(response) {
     console.log(currentCountry);
     let weatherConditionDescription = (response.data.weather[0].description);
     let currentTemp = Math.round(response.data.main.temp);
-    // let precipitation = (response.data.pop);
-    // console.log(precipitation);
     let wind = (response.data.wind.speed);
     let humidity = (response.data.main.humidity);
 
