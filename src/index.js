@@ -11,11 +11,11 @@ function formatDate(timestamp) {
         "Saturday"
     ];
 
-    let day = days[date.getDay()];
-    return `${day} ${formatHours(timestamp)}`;
+    let currentDay = days[date.getDay()];
+    return `${currentDay} ${formatTime(timestamp)}`;
 }
 
-function formatHours(timestamp) {
+function formatTime(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
     if (hours < 10) {
@@ -37,14 +37,15 @@ function showWeatherInformation(response) {
     let descriptionElement = document.querySelector("#description-of-current-condition");
     let windElement = document.querySelector("#wind");
     let humidityElement = document.querySelector("#humidity");
+
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute(
         "src",
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
-
-    currentTemperatureElement.innerHTML = Math.round(response.data.main.temp);
+    fahrenheitTemperature = response.data.main.temp;
+    currentTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -63,7 +64,33 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
+function convertToCelsius(event){
+    event.preventDefault();
+    let currentTemperatureElement = document.querySelector("#temperature");
+
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let celsiusTemperature = (fahrenheitTemperature - 32) * 5/9;
+    currentTemperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let currentTemperatureElement = document.querySelector("#temperature");
+    currentTemperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 search("Papillion");
