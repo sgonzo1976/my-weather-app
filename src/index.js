@@ -51,7 +51,19 @@ function showWeatherInformation(response) {
     humidityElement.innerHTML = response.data.main.humidity;
 }
 
-let apiKey = "1033a233134c723061a43e40b7ce9f09";
-let city = "Papillion";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(showWeatherInformation);
+function search(city) {
+    let apiKey = "1033a233134c723061a43e40b7ce9f09";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(showWeatherInformation);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("Papillion");
