@@ -20,8 +20,7 @@
             <div class="weather-app">
                 <div class="row">
                     <div class="col-6">
-                        <span class="card-title" id="current-location">
-                            Papillion, NE
+                        <span class="card-title" id="city">
                         </span>
                     </div>
                     <div class="col-6">
@@ -46,12 +45,12 @@
                         </form>
                     </div>
                 </div>
-                <span id="current-day-and-time">
-                </span>
-                <br />
-                <span id="description-of-current-condition">
-                    Cloudy
-                </span>
+                <div class="overview">
+                    <ul>
+                        <li>Last updated: <span id="current-day-and-time"></span></li>
+                        <li id="description-of-current-condition"></li>
+                    </ul>
+                </div>
                 <br />
                 <div class="current-condition">
                     <div class="row">
@@ -62,7 +61,6 @@
                                 alt="Cloudy"
                             />
                             <span class="align-middle current-temperature" id="temperature">
-                                -10
                             </span>
                             <span class="units">
                                 <a href="#" id="fahrenheit-link" class="active">°F</a> |
@@ -70,13 +68,13 @@
                             </span>
                         </div>
                         <div class="col-6">
-                            <br />
-                            <p class="wind" id="wind">
-                                Wind: NE 4 mph
-                            </p>
-                            <p class="humidity" id="humidity">
-                                Humidity: 67%
-                            </p>
+                            <div class="wind-and-humidity">
+                                <br>
+                                <ul>
+                                    <li>Wind: <span id="wind"></span> mph</li>
+                                    <li>Humidity: <span id="humidity"></span>%</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
