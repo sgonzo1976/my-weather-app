@@ -68,6 +68,15 @@ li:first-letter {
   top: -20px;
 }
 
+.units .active {
+  color: #000;
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+}
+
 .wind,
 .humidity,
 .day,
