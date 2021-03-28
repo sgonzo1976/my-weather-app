@@ -43,7 +43,7 @@ function showWeatherInformation(response) {
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
-    
+
     currentTemperatureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
@@ -52,5 +52,6 @@ function showWeatherInformation(response) {
 }
 
 let apiKey = "1033a233134c723061a43e40b7ce9f09";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Papillion&appid=${apiKey}&units=imperial`;
+let city = "Papillion";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(showWeatherInformation);
