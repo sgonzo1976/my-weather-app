@@ -24,17 +24,17 @@ li:first-letter {
 
 .weather-app-wrapper {
   margin: 25px auto;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .weather-app {
   border: 4px solid #1a73e8;
   border-radius: 12px;
-  padding: 25px;
+  padding: 25px 25px 0 25px;
 }
+
 .card-title {
   font-size: 25px;
-  vertical-align: middle;
 }
 
 .form-control {
@@ -46,26 +46,24 @@ li:first-letter {
   width: 40px;
 }
 
-.home {
-  width: 40px;
-}
-
-.current-condition {
-  padding-bottom: 20px;
-}
-
 .weather-icon {
   width: 100px;
 }
 
+.weather-icon,
+.current-temperature,
+.units {
+  position: relative;
+  left: -25px;
+}
+
 .current-temperature {
-  font-size: 72px;
+  font-size: 60px;
 }
 
 .units {
   font-size: 18px;
-  position: relative;
-  top: -20px;
+  top: -16px;
 }
 
 .units .active {
@@ -77,33 +75,7 @@ li:first-letter {
   text-decoration: none;
 }
 
-.day,
-.date,
-.high,
-.low {
-  margin: 0;
-}
-
-.day,
-.date,
-.high,
-.low {
-  text-align: center;
-}
-
-.high {
-  font-size: 25px;
-}
-
-.frigid {
-  display: block;
-  margin: 0 auto;
-  width: 20px;
-}
-
-.partly-sunny {
-  display: block;
-  margin: 0 auto;
-  padding: 8px 0;
-  width: 40px;
+.wind-and-humidity {
+  position: relative;
+  bottom: -25px;
 }

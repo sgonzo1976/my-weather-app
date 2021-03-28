@@ -24,7 +24,7 @@
                         </span>
                     </div>
                     <div class="col-6">
-                        <form class="search-form" id="search-form">
+                        <form id="search-form">
                             <div class="form-row">
                                 <div class="col-10">
                                     <input
@@ -37,10 +37,12 @@
                                     >
                                 </div>
                                 <div class="col-2">
-                                    <button 
-                                        type="submit" 
-                                        id="search-for-new-city">
-                                        <img src="images/search.jpg" class="search" alt="search the Earth">
+                                    <button type="submit">
+                                        <img
+                                            src="images/search.jpg"
+                                            class="search"
+                                            alt="search the Earth"
+                                        >
                                     </button>
                                 </div>
                             </div>
@@ -53,16 +55,14 @@
                         <li id="description-of-current-condition"></li>
                     </ul>
                 </div>
-                <br />
-                <div class="current-condition">
                     <div class="row">
                         <div class="col-6">
                             <img
                                 class="weather-icon"
                                 src=""
-                                alt="Cloudy"
+                                alt="description-of-current-condition"
                                 id="weather-icon"
-                            />
+                            >
                             <span class="align-middle current-temperature" id="temperature">
                             </span>
                             <span class="units">
@@ -72,7 +72,6 @@
                         </div>
                         <div class="col-6">
                             <div class="wind-and-humidity">
-                                <br>
                                 <ul>
                                     <li>Wind: <span id="wind"></span> mph</li>
                                     <li>Humidity: <span id="humidity"></span>%</li>
@@ -81,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <small>
                 <a 
                     href="https://github.com/sgonzo1976/my-weather-app"
